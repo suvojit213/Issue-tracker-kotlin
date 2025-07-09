@@ -93,7 +93,7 @@ class FeedbackActivity : AppCompatActivity() {
         message.append("*Feedback/Suggestions:*\n$feedback\n\n")
         message.append("*Name:* $name")
 
-        val whatsappUri = Uri.parse("https://wa.me/$phoneNumber?text=${Uri.encodeComponent(message.toString())}")
+        val whatsappUri = Uri.parse("https://wa.me/$phoneNumber?text=${Uri.encode(message.toString())}")
 
         try {
             startActivity(Intent(Intent.ACTION_VIEW, whatsappUri))

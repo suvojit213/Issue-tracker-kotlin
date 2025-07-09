@@ -17,6 +17,7 @@ import androidx.core.content.FileProvider
 import java.io.File
 import android.view.MenuItem
 import androidx.appcompat.app.AlertDialog
+import android.view.LayoutInflater
 
 class IssueDetailActivity : AppCompatActivity() {
 

@@ -27,6 +27,14 @@ class HomeFragment : Fragment() {
     private lateinit var issueTypeBreakdownContainer: LinearLayout
     private lateinit var editProfileButton: Button
 
+    // Declare the missing variables
+    private var crmId: String = ""
+    private var tlName: String = ""
+    private var advisorName: String = ""
+    private var totalIssues: Int = 0
+    private var issuesPerDay: MutableMap<String, Int> = mutableMapOf()
+    private var issueTypeBreakdown: MutableMap<String, Int> = mutableMapOf()
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

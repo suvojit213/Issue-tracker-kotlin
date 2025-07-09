@@ -5,7 +5,7 @@ object IssueParser {
         val parsedMap = mutableMapOf<String, String>()
         val parts = entry.split("|")
         for (part in parts) {
-            val keyValue = part.split(":", 2) // Split only on the first colon
+            val keyValue = part.split(':', 2) // Split only on the first colon
             if (keyValue.size == 2) {
                 parsedMap[keyValue[0].trim()] = keyValue[1].trim()
             }
