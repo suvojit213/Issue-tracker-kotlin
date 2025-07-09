@@ -173,7 +173,7 @@
                                 <ImageView
                                     android:layout_width="50dp"
                                     android:layout_height="50dp"
-                                    android:src="@mipmap/ic_launcher_round" <!-- Placeholder for app_logo.png -->
+                                    android:src="@mipmap/ic_launcher_round" /> <!-- Placeholder for app_logo.png -->
                                     android:scaleType="fitCenter"
                                     android:background="@drawable/circular_image_background"
                                     android:contentDescription="App Logo" />
