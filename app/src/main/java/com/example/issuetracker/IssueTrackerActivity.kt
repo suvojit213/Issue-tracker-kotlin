@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import android.content.Intent
+import android.widget.Button
 import com.example.issuetracker.data.Issue
 import com.example.issuetracker.ui.IssueAdapter
 
@@ -31,5 +32,10 @@ class IssueTrackerActivity : AppCompatActivity() {
             startActivity(intent)
         }
         recyclerView.adapter = adapter
+n        val settingsButton: Button = findViewById(R.id.settings_button)
+        settingsButton.setOnClickListener {
+            val intent = Intent(this, SettingsActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
