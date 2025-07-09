@@ -4,4 +4,7 @@
     <color name="white">#FFFFFF</color>
     <color name="ic_launcher_background">#1E1E1E</color>
     <color name="purple_500">#9C27B0</color>
+    <color name="darkBlue">#1E3A8A</color>
+    <color name="lightBlue">#3B82F6</color>
+    <color name="green">#059669</color>
 </resources>
