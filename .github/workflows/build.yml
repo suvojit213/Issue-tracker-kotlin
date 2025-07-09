@@ -35,13 +35,19 @@ jobs:
           echo "Gradle wrapper banaya ja raha hai repository root mein..."
           gradle wrapper
 
-      # Step 5: Verify SettingsActivity.kt content
-      - name: Print SettingsActivity.kt content
-        run: cat app/src/main/java/com/example/issuetracker/SettingsActivity.kt
+      # Step 5: Decode and save keystore file
+      - name: Decode Keystore
+        run: |
+          echo "${{ secrets.KEYSTORE_FILE_BASE64 }}" | base64 --decode > my-release-key.jks
+        shell: bash
 
       # Step 6: Build with Gradle Wrapper
       - name: Build with Gradle Wrapper
         run: ./gradlew clean assembleRelease
+        env:
+          ORG_GRADLE_PROJECT_storePassword: ${{ secrets.KEYSTORE_PASSWORD }}
+          ORG_GRADLE_PROJECT_keyPassword: ${{ secrets.KEY_PASSWORD }}
+          ORG_GRADLE_PROJECT_keyAlias: ${{ secrets.KEY_ALIAS }}
 
       # Step 7: Upload APK on release
       - name: Create GitHub Release
