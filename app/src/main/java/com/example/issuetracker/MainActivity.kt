@@ -7,7 +7,7 @@ import android.os.Bundle
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val intent = Intent(this, IssueTrackerActivity::class.java)
+        val intent = Intent(this, SplashScreenActivity::class.java)
         startActivity(intent)
         finish()
         

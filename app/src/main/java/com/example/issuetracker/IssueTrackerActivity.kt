@@ -2,40 +2,37 @@ package com.example.issuetracker
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import android.content.Intent
-import android.widget.Button
-import com.example.issuetracker.data.Issue
-import com.example.issuetracker.ui.IssueAdapter
+import androidx.fragment.app.Fragment
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class IssueTrackerActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_issue_tracker)
-        val recyclerView: RecyclerView = findViewById(R.id.issues_recycler_view)
-        recyclerView.layoutManager = LinearLayoutManager(this)
 
-        val dummyIssues = listOf(
-            Issue("1", "Bug in login", "Users cannot log in with correct credentials.", "Open", "2025-07-01"),
-            Issue("2", "Feature Request: Dark Mode", "Add a dark mode option to the app settings.", "Closed", "2025-06-25"),
-            Issue("3", "UI Glitch on Profile", "Profile picture is sometimes distorted.", "In Progress", "2025-07-05")
-        )
+        val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottom_navigation)
+        bottomNavigationView.setOnItemSelectedListener { item ->
+            var selectedFragment: Fragment? = null
+            when (item.itemId) {
+                R.id.navigation_home -> selectedFragment = HomeFragment()
+                R.id.navigation_tracker -> selectedFragment = IssueTrackerFragment()
+                R.id.navigation_history -> selectedFragment = HistoryFragment()
+                R.id.navigation_settings -> selectedFragment = SettingsFragment()
+            }
+            selectedFragment?.let { loadFragment(it) }
+            true
+        }
 
-        val adapter = IssueAdapter(dummyIssues) { issue ->
-            val intent = Intent(this, IssueDetailActivity::class.java)
-            intent.putExtra("issue_title", issue.title)
-            intent.putExtra("issue_description", issue.description)
-            intent.putExtra("issue_status", issue.status)
-            intent.putExtra("issue_date", issue.createdDate)
-            startActivity(intent)
+        // Load the default fragment (HomeFragment)
+        if (savedInstanceState == null) {
+            loadFragment(HomeFragment())
         }
-        recyclerView.adapter = adapter
-        val settingsButton: Button = findViewById(R.id.settings_button)
-        settingsButton.setOnClickListener {
-            val intent = Intent(this, SettingsActivity::class.java)
-            startActivity(intent)
-        }
+    }
+
+    private fun loadFragment(fragment: Fragment) {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, fragment)
+            .commit()
     }
 }

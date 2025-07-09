@@ -6,9 +6,11 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.issuetracker.R
-import com.example.issuetracker.data.Issue
+import com.example.issuetracker.data.FullIssueDetails
+import java.time.ZonedDateTime
+import java.time.format.DateTimeFormatter
 
-class IssueAdapter(private val issues: List<Issue>, private val onItemClick: (Issue) -> Unit) : RecyclerView.Adapter<IssueAdapter.IssueViewHolder>() {
+class IssueAdapter(private val issues: List<FullIssueDetails>, private val onItemClick: (FullIssueDetails) -> Unit) : RecyclerView.Adapter<IssueAdapter.IssueViewHolder>() {
 
     inner class IssueViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val titleTextView: TextView = itemView.findViewById(R.id.issue_title)
@@ -30,10 +32,18 @@ class IssueAdapter(private val issues: List<Issue>, private val onItemClick: (Is
 
     override fun onBindViewHolder(holder: IssueViewHolder, position: Int) {
         val issue = issues[position]
-        holder.titleTextView.text = issue.title
-        holder.descriptionTextView.text = issue.description
-        holder.statusTextView.text = issue.status
-        holder.dateTextView.text = issue.createdDate
+        holder.titleTextView.text = issue.issueType
+        holder.descriptionTextView.text = issue.reason
+        holder.statusTextView.text = "Recorded" // Placeholder status
+
+        // Format fillTime for display
+        try {
+            val zonedDateTime = ZonedDateTime.parse(issue.fillTime)
+            val formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy")
+            holder.dateTextView.text = zonedDateTime.format(formatter)
+        } catch (e: Exception) {
+            holder.dateTextView.text = issue.fillTime // Fallback to raw string if parsing fails
+        }
     }
 
     override fun getItemCount(): Int {
