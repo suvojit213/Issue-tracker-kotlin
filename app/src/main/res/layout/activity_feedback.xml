@@ -76,7 +76,7 @@
                             android:id="@+id/feedback_edit_text"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="Review & Suggestions"
+                            android:hint="Review &amp; Suggestions"
                             android:inputType="textMultiLine"
                             android:lines="5"
                             android:gravity="top"
