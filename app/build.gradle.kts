@@ -28,7 +28,7 @@ android {
                 keystoreProperties.load(FileInputStream(keystorePropertiesFile))
             }
 
-            storeFile = file("my-release-key.jks") // Path to your keystore file
+            storeFile = rootProject.file("my-release-key.jks") // Path to your keystore file
             storePassword = keystoreProperties.getProperty("storePassword")
             keyAlias = keystoreProperties.getProperty("keyAlias")
             keyPassword = keystoreProperties.getProperty("keyPassword")
