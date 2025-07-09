@@ -6,6 +6,7 @@ on:
       - main
 
 jobs:
+  # This job builds the Android application, signs it, and creates a GitHub Release.
   build-and-release:
     runs-on: ubuntu-latest
     permissions:
