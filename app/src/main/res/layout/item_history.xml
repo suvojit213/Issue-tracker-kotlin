@@ -235,7 +235,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:columnCount="3"
-            android:rowCount="auto"
+            android:rowCount="1"
             android:orientation="horizontal"
             android:alignmentMode="alignBounds"
             android:columnOrderPreserved="false"

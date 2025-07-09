@@ -172,7 +172,7 @@
                         <ImageView
                             android:layout_width="24dp"
                             android:layout_height="24dp"
-                            android:src="@android:drawable/ic_menu_group"
+                            android:src="@android:drawable/ic_menu_manage"
                             android:tint="#3B82F6" />
 
                         <LinearLayout
