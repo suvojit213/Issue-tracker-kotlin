@@ -3,9 +3,6 @@ plugins {
     id("org.jetbrains.kotlin.android")
 }
 
-import java.util.Properties
-import java.io.FileInputStream
-
 android {
     namespace = "com.example.issuetracker"
     compileSdk = 34
@@ -22,16 +19,10 @@ android {
 
     signingConfigs {
         create("release") {
-            val keystoreProperties = Properties()
-            val keystorePropertiesFile = rootProject.file("keystore.properties")
-            if (keystorePropertiesFile.exists()) {
-                keystoreProperties.load(FileInputStream(keystorePropertiesFile))
-            }
-
             storeFile = rootProject.file("my-release-key.jks") // Path to your keystore file
-            storePassword = keystoreProperties.getProperty("storePassword")
-            keyAlias = keystoreProperties.getProperty("keyAlias")
-            keyPassword = keystoreProperties.getProperty("keyPassword")
+            storePassword = System.getenv("ORG_GRADLE_PROJECT_storePassword")
+            keyAlias = System.getenv("ORG_GRADLE_PROJECT_keyAlias")
+            keyPassword = System.getenv("ORG_GRADLE_PROJECT_keyPassword")
         }
     }
 
