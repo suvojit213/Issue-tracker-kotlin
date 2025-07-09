@@ -8,13 +8,19 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.issuetracker.R
 import com.example.issuetracker.data.Issue
 
-class IssueAdapter(private val issues: List<Issue>) : RecyclerView.Adapter<IssueAdapter.IssueViewHolder>() {
+class IssueAdapter(private val issues: List<Issue>, private val onItemClick: (Issue) -> Unit) : RecyclerView.Adapter<IssueAdapter.IssueViewHolder>() {
 
-    class IssueViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class IssueViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val titleTextView: TextView = itemView.findViewById(R.id.issue_title)
         val descriptionTextView: TextView = itemView.findViewById(R.id.issue_description)
         val statusTextView: TextView = itemView.findViewById(R.id.issue_status)
         val dateTextView: TextView = itemView.findViewById(R.id.issue_date)
+
+        init {
+            itemView.setOnClickListener {
+                onItemClick(issues[adapterPosition])
+            }
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): IssueViewHolder {
