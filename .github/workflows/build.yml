@@ -1,9 +1,11 @@
 name: Android CI/CD (Kotlin)
 
-on: 
+on:
   push:
     branches:
       - main
+    tags: # Add this line to trigger on tag pushes
+      - 'v*.*.*' # Example: v1.0.0, v1.0.1, etc.
   release:
     types:
       - created
@@ -48,11 +50,11 @@ jobs:
 
       # Step 7: Upload APK on release
       - name: Create GitHub Release
-        if: github.event_name == 'release'
+        if: startsWith(github.ref, 'refs/tags/') # Change condition to trigger on tag push
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: v1.0.${{ github.run_number }}
-          name: Release v1.0.${{ github.run_number }}
+          tag_name: ${{ github.ref_name }} # Use the tag name directly
+          name: Release ${{ github.ref_name }}
           body: Automated release from CI/CD.
           draft: false
           prerelease: false
