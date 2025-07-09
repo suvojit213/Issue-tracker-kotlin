@@ -32,7 +32,7 @@ class IssueTrackerActivity : AppCompatActivity() {
             startActivity(intent)
         }
         recyclerView.adapter = adapter
-n        val settingsButton: Button = findViewById(R.id.settings_button)
+        val settingsButton: Button = findViewById(R.id.settings_button)
         settingsButton.setOnClickListener {
             val intent = Intent(this, SettingsActivity::class.java)
             startActivity(intent)
