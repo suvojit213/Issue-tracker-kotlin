@@ -30,11 +30,7 @@ jobs:
         with:
           gradle-version: 8.7
 
-      # Step 4: Generate Gradle Wrapper
-      - name: Generate Gradle Wrapper
-        run: |
-          echo "Gradle wrapper banaya ja raha hai repository root mein..."
-          gradle wrapper
+      
 
       # Step 5: Decode and save keystore file
       - name: Decode Keystore
