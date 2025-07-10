@@ -1,0 +1,40 @@
+
+<resources>
+    <string name="app_name">IssueTrackerKotlin</string>
+</resources>
+
+
+    <string-array name="tl_names">
+        <item>Manish Kumar</item>
+        <item>Aniket</item>
+        <item>Imran Khan</item>
+        <item>Ravi</item>
+        <item>Gajendra</item>
+        <item>Suyash Upadhyay</item>
+        <item>Randhir Kumar</item>
+        <item>Subham Kumar</item>
+        <item>Karan</item>
+        <item>Rohit</item>
+        <item>Shilpa</item>
+        <item>Vipin</item>
+        <item>Sonu</item>
+        <item>Other</item>
+    </string-array>
+    <string-array name="organizations">
+        <item>DISH</item>
+        <item>D2H</item>
+    </string-array>
+
+
+    <string-array name="issue_explanation_options">
+        <item>Electricity Issue/Power Failure</item>
+        <item>Head Phone Issue</item>
+        <item>Wifi Stopped Working</item>
+        <item>System Hang / Voice Issue</item>
+        <item>Voice Issue / Cx Voice Not Audible</item>
+        <item>Mobile Phone Hang</item>
+        <item>Auto Call Drop</item>
+        <item>Aspect / WDE issue</item>
+        <item>Mobile Network Connectivity</item>
+    </string-array>
+
