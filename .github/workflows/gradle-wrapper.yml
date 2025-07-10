@@ -24,6 +24,7 @@ jobs:
       run: |
         git config user.name github-actions
         git config user.email github-actions@github.com
+        chmod +x gradlew
         git add gradle/wrapper/gradle-wrapper.properties gradlew gradlew.bat gradle/wrapper/gradle-wrapper.jar
         git commit -m "Auto-generate Gradle wrapper" || echo "No changes to commit"
         git push || echo "No changes to push"
