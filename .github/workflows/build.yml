@@ -38,6 +38,10 @@ jobs:
           echo "${{ secrets.KEYSTORE_FILE_BASE64 }}" | base64 --decode > my-release-key.jks
         shell: bash
 
+      # Step 4: Generate Gradle Wrapper
+      - name: Generate Gradle Wrapper
+        run: ./gradlew wrapper --gradle-version 8.11.1
+
       # Step 6: Build with Gradle Wrapper
       - name: Build with Gradle Wrapper
         run: ./gradlew clean assembleRelease
