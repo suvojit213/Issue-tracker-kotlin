@@ -1,8 +1,6 @@
 
 <resources>
     <string name="app_name">IssueTrackerKotlin</string>
-</resources>
-
 
     <string-array name="tl_names">
         <item>Manish Kumar</item>
@@ -25,7 +23,6 @@
         <item>D2H</item>
     </string-array>
 
-
     <string-array name="issue_explanation_options">
         <item>Electricity Issue/Power Failure</item>
         <item>Head Phone Issue</item>
@@ -37,4 +34,5 @@
         <item>Aspect / WDE issue</item>
         <item>Mobile Network Connectivity</item>
     </string-array>
+</resources>
 
