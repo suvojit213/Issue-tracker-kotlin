@@ -119,11 +119,11 @@
                         android:layout_height="16dp" />
 
                     <com.google.android.material.textfield.TextInputLayout
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Review & Suggestions"
-                        app:startIconDrawable="@drawable/ic_feedback_outlined">
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Review &amp; Suggestions"
+                            app:startIconDrawable="@drawable/ic_feedback_outlined">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/feedback_edit_text"
